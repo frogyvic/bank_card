@@ -15,10 +15,3 @@ void cout_hello_menu(std::string index,std::string pin_code,std::string cvv_code
     std::cout << "Пин-код: " << pin_code << "\n";
     std::cout << "CVV-код: " << cvv_code << "\n";
 }
-void main_menu() {
-
-    std::cout << "\n       Введите, какой функцией Кошелеффф Банка вы хотите воспользоваться:"<<std::endl;
-    std::cout << "1) Управление счётом" << std::endl;
-    std::cout << "2) Сменить Пин-код" << std::endl;
-    std::cout << "3) Валютная касса" << std::endl;
-}

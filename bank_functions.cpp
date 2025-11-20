@@ -1,6 +1,7 @@
 ﻿#include <iostream>
 #include <string>
 #include "bank_functions.hpp"
+#include "const_str.hpp"
 
 void bank_account( int& rubles, int& dollars,int& cash) {
     if ((rubles == 0) && (dollars == 0)) {
@@ -35,10 +36,10 @@ void bank_account( int& rubles, int& dollars,int& cash) {
                         std::cout << "На счет нельзя положить отрицательное кол-во рублей\n"; break;
                     }
                     rubles += value; cash -= value;
-                    std::cout << "Успешно!\n\n"; operations_finish = true; break;
+                    std::cout << list_str[6]; operations_finish = true; break;
                 }
                 else {
-                    std::cout << "Некорректный ввод,пожалуйста,попробуйте снова" << std::endl;
+                    std::cout <<list_str[1];
                     std::cin.clear();
                     std::cin.ignore();
                     operations_finish = true; break;
@@ -56,19 +57,19 @@ void bank_account( int& rubles, int& dollars,int& cash) {
                         std::cout << "Со счета нельзя снять отрицательное количecтво рублей\n"; break;
                     }
                     rubles -= value; cash += value;
-                    std::cout << "Успешно! \n\n"; operations_finish = true; break;
+                    std::cout << list_str[6]; operations_finish = true; break;
                 }
                 else {
-                    std::cout << "Некорректный ввод,пожалуйста,попробуйте снова" << std::endl;
+                    std::cout <<list_str[1];
                     std::cin.clear();
                     std::cin.ignore(); operations_finish = true; break;
                 }
             default:
-                std::cout << "Неизвестная функция, попробуйте снова" << std::endl; break;
+                std::cout << list_str[7] ;break;
             }
         }
         else {
-            std::cout << "Некорректный ввод,пожалуйста,попробуйте снова" << std::endl;
+            std::cout <<list_str[1];
             operations_finish = true;
             std::cin.clear();
             std::cin.ignore();
@@ -92,7 +93,7 @@ void change_pin(std::string& pin_code) {
                     if (std::cin >> new_pin) {
                         std::string str_pin = std::to_string(new_pin);
                         if ((new_pin < 0) || (str_pin.length() != 4)) {
-                            std::cout << "Некорректный новый пинкод, введите четырехзначное число без пробелов или иных символов\n\n";
+                            std::cout << list_str[4];
                         }
                         else {
                             pin_code = str_pin;
@@ -101,7 +102,7 @@ void change_pin(std::string& pin_code) {
 
                     }
                     else {
-                        std::cout << "Некорректный новый пинкод, введите четырехзначное число без пробелов или иных символов\n\n";
+                        std::cout <<list_str[4];
                     }
                 }
                 else {
@@ -109,14 +110,14 @@ void change_pin(std::string& pin_code) {
                 }
             }
             else {
-                std::cout << "Некорректный ввод,пожалуйста,попробуйте снова" << std::endl;
+                std::cout <<list_str[1];
                 std::cin.clear();
                 std::cin.ignore();
             }
         }
     }
     else {
-        std::cout << "Некорректный ввод,пожалуйста,попробуйте снова" << std::endl;
+        std::cout << list_str[1];
         std::cin.clear();
         std::cin.ignore();
     }
@@ -141,7 +142,7 @@ void currency_shop(int& rubles, int& dollars, int e_rate) {
                     std::cout << "сколько долларов вы хотели бы купить?\n";
                     if (std::cin >> value) {
                         if (value < 0) {
-                            std::cout << "Нельзя купить отрицательное количество долларов, пожалуйста, попробуйте снова";
+                            std::cout << list_str[5];
                             break;
                         }
                         if (value * e_rate > rubles) {
@@ -150,13 +151,13 @@ void currency_shop(int& rubles, int& dollars, int e_rate) {
                             operations_finish = true; break;
                         }
                         else {
-                            std::cout << "Успешно!\n\n";
+                            std::cout << list_str[6];
                             dollars += value; rubles -= value * e_rate;
                             operations_finish = true; break;
                         }
                     }
                     else {
-                        std::cout << "Некорректный ввод,пожалуйста,введите целое количество валюты, которую вы хотите купить" << std::endl;
+                        std::cout << list_str[1];
                         operations_finish = true;
                         std::cin.clear();
                         std::cin.ignore(); break;
@@ -166,7 +167,7 @@ void currency_shop(int& rubles, int& dollars, int e_rate) {
                     std::cout << "сколько рублей вы хотели бы купить?\n";
                     if (std::cin >> value) {
                         if (value < 0) {
-                            std::cout << "Нельзя купить отрицательное количество рублей, пожалуйста, попробуйте снова";
+                            std::cout <<list_str[5];
                             break;
                         }
                         if (value / e_rate > (dollars-1)) {
@@ -176,24 +177,24 @@ void currency_shop(int& rubles, int& dollars, int e_rate) {
                             operations_finish = true; break;
                         }
                         else {
-                            std::cout << "Успешно!\n\n";
+                            std::cout << list_str[6];
                             dollars -= (value)/e_rate+1; rubles += (value/e_rate)*e_rate+(value-value%e_rate);
                             operations_finish = true; break;
                         }
                     }
                     else {
-                        std::cout << "Некорректный ввод,пожалуйста,введите целое количество валюты, которую вы хотите купить" << std::endl;
+                        std::cout << list_str[1];
                         operations_finish = true;
                         std::cin.clear();
                         std::cin.ignore(); break;
                     }
                 default:
-                    std::cout << "Неизвестная функция, попробуйте снова" << std::endl; break;
+                    std::cout << list_str[7] << std::endl; break;
 
                 }
             }
             else {
-                std::cout << "Некорректный ввод,пожалуйста,попробуйте снова" << std::endl;
+                std::cout << list_str[1];
                 operations_finish = true;
                 std::cin.clear();
                 std::cin.ignore();

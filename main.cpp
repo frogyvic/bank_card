@@ -7,13 +7,14 @@
 #include "valid_index_and_pin.hpp"
 #include "visual_functions.hpp" 
 #include "bank_functions.hpp"
-
+#include "const_str.hpp"
 
 
 
 
 
 int main() {
+    std::cout<<list_str[0];
     srand(time(0));
     setlocale(LC_ALL, "");
     std::string index = generate_card_index();
@@ -41,30 +42,29 @@ int main() {
     int window = 0;
     bool stopper=false;
     while (stopper==false) {
-        std::cout << "======================================================================\n";
-        main_menu();
+        std::cout << list_str[0];
+        std::cout<<list_str[8];
         if (std::cin >> window) {
             switch (window) {
             case 1:
-                std::cout << "======================================================================\n";
+                std::cout << list_str[0];
                 bank_account(rubles_on_card, dollars_on_card, cash); break;
             case 2:
-                std::cout << "======================================================================\n";
+                std::cout << list_str[0];
                 change_pin(pin_code); break;
             case 3: 
-                std::cout << "======================================================================\n";
+                std::cout << list_str[0];
                 currency_shop(rubles_on_card, dollars_on_card,exchange_rate); break;
             case 2812:
                 stopper=true;break;
             default:
-                std::cout << "======================================================================\n";
+                std::cout << list_str[0];
                 std::cout << "Неизвестное окно" << std::endl;
             }
         }
         else {
-            std::cout << "======================================================================\n";
-            std::cout << "Некорректный ввод,пожалуйста,попробуйте снова" << std::endl;
-           std::cin.clear();
+            std::cout << list_str[0];
+            std::cout << list_str[1];
            std::cin.ignore();
 
         }

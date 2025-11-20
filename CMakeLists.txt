@@ -12,4 +12,5 @@ add_EXECUTABLE("${PROJECT_NAME}" main.cpp
     valid_index_and_pin.cpp
     visual_functions.cpp
     bank_functions.cpp
+    const_str.cpp
 )
