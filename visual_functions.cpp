@@ -9,7 +9,6 @@ void index_output(std::string card_index) {
     std::cout << card_index;
 }
 void cout_hello_menu(std::string index,std::string pin_code,std::string cvv_code) {
-
     std::cout << "       Добро пожаловать в Кошелеффф Банк, ваши реквизиты(запомните их для входа в систему):\n";
     std::cout << "Номер карты: "; index_output(index); std::cout << "\n";
     std::cout << "Пин-код: " << pin_code << "\n";

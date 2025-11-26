@@ -14,29 +14,31 @@
 
 
 int main() {
-    std::cout<<list_str[0];
+    setlocale(LC_ALL, "ru");
     srand(time(0));
-    setlocale(LC_ALL, "");
+   
     std::string index = generate_card_index();
     std::string pin_code = generate_pin();
     std::string cvv_code = generate_cvv();
-    int cash = rand() % 50000;
+    int cash =600+ rand() % 50000;
     int rubles_on_card=0;
     int dollars_on_card = 0;
     int exchange_rate = 70 + rand() % 31;
+    
+    std::cout<<list_str[0];
     cout_hello_menu(index, pin_code, cvv_code);
     bool correct_data = false;
 
     while (correct_data == false) {
         index = "1"; pin_code = "1";//ИЗМЕНИТЬ ПРИ СБОРКЕ!
         std::string card_index_from_user; std::string pin_code_from_user;
-        std::cout << "Добро пожаловать в Кошелеффф Банк, введите ваши реквизиты(без пробелов)\n" << "Номер карты: ";
+        std::cout << list_str[10];
         std::cin >> card_index_from_user;
-        std::cout << "Пин-код: ";
+        std::cout << list_str[11];
         std::cin >> pin_code_from_user;
         correct_data = is_valid_enter_data(card_index_from_user, index, pin_code_from_user, pin_code);
         if (correct_data == false) {
-            std::cout << "Неправильно введенный номер карты или пин-код\n";
+            std::cout << list_str[12];
         }
     }
     int window = 0;
@@ -55,11 +57,11 @@ int main() {
             case 3: 
                 std::cout << list_str[0];
                 currency_shop(rubles_on_card, dollars_on_card,exchange_rate); break;
-            case 2812:
+            case 4:
                 stopper=true;break;
             default:
                 std::cout << list_str[0];
-                std::cout << "Неизвестное окно" << std::endl;
+                std::cout << list_str[9] << std::endl;
             }
         }
         else {
